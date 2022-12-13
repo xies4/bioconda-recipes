@@ -1,0 +1,28 @@
+{% set version = "1.0.2" %}
+
+package:
+  name: r-archer
+  version: {{ version }}
+
+source:
+  url: https://github.com/GreenleafLab/ArchR/archive/v{{ version }}.tar.gz
+  sha256: afe4d82975e9d75018e9ec9fda3d116f34f99ad1d45990cbc5a2be7dea8df352
+
+build:
+  number: 0
+
+build:
+  noarch: generic
+  number: 1
+  rpaths:
+    - lib/R/lib/
+    - lib/
+    
+test:
+  commands:
+    - $R -e "library('ArchR')"
+
+about:
+  home: https://github.com/GreenleafLab/ArchR
+  license: MIT
+  summary: ArchR : Analysis of Regulatory Chromatin in R (www.ArchRProject.com)
